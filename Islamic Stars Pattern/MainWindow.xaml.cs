@@ -36,7 +36,7 @@ namespace Islamic_Stars_Pattern
 
 
             this.N = 12;
-            this.a = 10 ;
+            this.a = 10;
             this.b = -8;
             this.G = 4;
             this.n = 1;
