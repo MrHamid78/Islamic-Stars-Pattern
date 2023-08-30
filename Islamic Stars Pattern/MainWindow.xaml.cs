@@ -29,7 +29,7 @@ namespace Islamic_Stars_Pattern
         private int K; // K = 0 , 1 , 2
         public MainWindow()
         {
-            InitializeComponent();
+            /*InitializeComponent();
 
             DrawLine(setX(-(canvas.Width / 2)), setY(0), setX(canvas.Width / 2), setY(0), Brushes.Red);
             DrawLine(setX(0), setY(-(canvas.Height / 2)), setX(0), setY(canvas.Height / 2), Brushes.Red);
@@ -41,7 +41,7 @@ namespace Islamic_Stars_Pattern
             this.G = 4;
             this.n = 1;
             this.K = 0;
-            primitivePattern();
+            primitivePattern();*/
         }
 
 

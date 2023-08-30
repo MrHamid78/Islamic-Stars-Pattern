@@ -7,18 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
-        <Canvas x:Name="canvas" Width="500" Height="400" Margin="150,17,127,17"></Canvas>
-        <ComboBox Name="type" Margin="10,17,657,373">
-            <ComboBoxItem Content="Rossete"/>
-            <ComboBoxItem Content="Stars"/>
-            <ComboBoxItem Content="Option 3"/>
-        </ComboBox>
+        <StackPanel Grid.Column="0" Margin="10">
+            <ComboBox Name="type">
+                <ComboBoxItem Content="Rossete"/>
+                <ComboBoxItem Content="Stars"/>
+                <ComboBoxItem Content="Option 3"/>
+            </ComboBox>
 
-        <TextBox Margin="10,78,657,318"/>
-        <TextBox Margin="10,254,657,142"/>
-        <TextBox Margin="10,198,657,198"/>
-        <TextBox Margin="10,136,657,260"/>
-        <Button Margin="10,325,657,71" Content="Generate"/>
+            <TextBox Margin="0,10"/>
+            <TextBox Margin="0,10"/>
+            <TextBox Margin="0,10"/>
+            <TextBox Margin="0,10"/>
+            <Button Margin="0,10" Content="Generate"/>
+        </StackPanel>
+
+        <Canvas x:Name="canvas" Grid.Column="1"/>
     </Grid>
 </Window>
