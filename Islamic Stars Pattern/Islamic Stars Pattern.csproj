@@ -64,6 +64,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Class\Coordinates.cs" />
+    <Compile Include="Class\Draw.cs" />
+    <Compile Include="Class\Rossets.cs" />
+    <Compile Include="Interfaces\FactoryInterface.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
