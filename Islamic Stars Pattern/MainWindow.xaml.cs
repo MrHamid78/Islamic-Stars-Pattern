@@ -32,6 +32,7 @@ namespace Islamic_Stars_Pattern
             if (type == "Rossete")
             {
                 pattern = new Rossets(canvas ,N, G, K, a, b);
+                pattern.drawPrimitivePattern();
             }
             else if (type == "Stars")
             {
@@ -56,15 +57,20 @@ namespace Islamic_Stars_Pattern
             if (selctedType != null)
             {
                 string type = selctedType.Content.ToString();
-                if(type == "Rossete")
+                if(type != "Rossete" && type != "Stars")
                 {
+                    MessageBox.Show("Invalid Type Selection !");
 
                 }
-                else if(type == "Stars")
+                else
                 {
-
+                    this.N = Int32.Parse(NInput.Text);
+                    this.K = Int32.Parse(KInput.Text);
+                    this.G = Double.Parse(GInput.Text);
+                    this.a = Double.Parse(aInput.Text);
+                    this.b = Double.Parse(bInput.Text);
+                    creator(type);
                 }
-                MessageBox.Show($"Selected value: {type}");
             }
             else
             {
