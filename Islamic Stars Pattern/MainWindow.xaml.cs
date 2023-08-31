@@ -15,16 +15,17 @@ namespace Islamic_Stars_Pattern
     /// </summary>
     public partial class MainWindow : Window
     {
-        int scale = 10;
-        private int N; // N > 2
-        private double a;
-        private double b;
-        private double G; // G = 1 , 2 , 3
-        private double n;
-        private int K; // K = 0 , 1 , 2
 
         FactoryInterface pattern;
 
+        int scale = 10;
+        private int N; // N > 2
+        private double G; // G = 1 , 2 , 3
+        private int K; // K = 0 , 1 , 2
+
+        private double a;
+        private double b;
+        private double n;
 
         private void creator(String type)
         {

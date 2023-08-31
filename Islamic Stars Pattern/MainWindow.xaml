@@ -19,18 +19,18 @@
                 <ComboBoxItem Content="Stars"/>
             </ComboBox>
             <Label Content="N :"/>
-            <TextBox Margin="0,10"/>
+            <TextBox Margin="0,10" Name="NInput"/>
             <Label Content="G :"/>
-            <TextBox Margin="0,10"/>
+            <TextBox Margin="0,10" Name="GInput"/>
             <Label Content="K :"/>
-            <TextBox Margin="0,10"/>
+            <TextBox Margin="0,10" Name="KInput"/>
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <Label Content="B (x) :" Width="70" Margin="5,0"/>
                 <Label Content="B (y) :" Width="70" Margin="5,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <TextBox Width="70" Margin="5,0"/>
-                <TextBox Width="70" Margin="5,0"/>
+                <TextBox Width="70" Margin="5,0" Name="aInput"/>
+                <TextBox Width="70" Margin="5,0" Name="bInput"/>
             </StackPanel>
             <Button Margin="0,10" Content="Generate" Click="Button_Click"/>
         </StackPanel>
