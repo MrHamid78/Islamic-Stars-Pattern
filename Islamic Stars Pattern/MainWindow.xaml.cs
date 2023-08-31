@@ -1,7 +1,7 @@
 ﻿using System;
 
 using System.Windows;
-
+using System.Windows.Controls;
 using System.Windows.Media;
 
 using System.Windows.Shapes;
@@ -155,7 +155,25 @@ namespace Islamic_Stars_Pattern
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ComboBoxItem selctedType = (ComboBoxItem)type.SelectedItem;
 
+            if (selctedType != null)
+            {
+                string type = selctedType.Content.ToString();
+                if(type == "Rossete")
+                {
+
+                }
+                else if(type == "Stars")
+                {
+
+                }
+                MessageBox.Show($"Selected value: {type}");
+            }
+            else
+            {
+                MessageBox.Show("Please Select Type Of Pattern !");
+            }
         }
     }
 }
