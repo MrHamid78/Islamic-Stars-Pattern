@@ -11,6 +11,8 @@ namespace Islamic_Stars_Pattern.Class
 {
     public class Draw
     {
+        protected static Draw draw;
+
         protected Canvas canvas;
 
         public Draw(Canvas canvas)
@@ -19,7 +21,16 @@ namespace Islamic_Stars_Pattern.Class
         }
         public Draw()
         {
+        }
 
+        public static void DrawXAndYAxis(Canvas canvas)
+        {
+            if(draw == null)
+            {
+                draw = new Draw(canvas);
+            }
+            draw.DrawLine(draw.setX(-(canvas.ActualWidth / 2)), draw.setY(0), draw.setX(canvas.ActualWidth / 2), draw.setY(0), Brushes.Red);
+            draw.DrawLine(draw.setX(0), draw.setY(-(canvas.ActualHeight / 2)), draw.setX(0), draw.setY(canvas.ActualHeight / 2), Brushes.Red);
         }
 
         public void DrawLine(double X1, double Y1, double X2, double Y2, SolidColorBrush color)

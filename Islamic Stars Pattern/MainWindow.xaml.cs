@@ -41,16 +41,11 @@ namespace Islamic_Stars_Pattern
             {
 
             }
+            Draw.DrawXAndYAxis(canvas);
         }
 
         public MainWindow()
         {
-
-            /*InitializeComponent();
-
-            DrawLine(setX(-(canvas.Width / 2)), setY(0), setX(canvas.Width / 2), setY(0), Brushes.Red);
-            DrawLine(setX(0), setY(-(canvas.Height / 2)), setX(0), setY(canvas.Height / 2), Brushes.Red);
-            primitivePattern();*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
