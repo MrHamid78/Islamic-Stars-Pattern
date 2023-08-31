@@ -53,7 +53,7 @@ namespace Islamic_Stars_Pattern.Class
 
         public double setX(double x)
         {
-            double middleOfXAxis = canvas.Width / 2;
+            double middleOfXAxis = canvas.ActualWidth / 2;
 
             if (x == 0)
                 return middleOfXAxis;
@@ -63,7 +63,7 @@ namespace Islamic_Stars_Pattern.Class
 
         public double setY(double x)
         {
-            double middleOfYAxis = canvas.Height / 2;
+            double middleOfYAxis = canvas.ActualHeight / 2;
 
             if (x == 0)
                 return middleOfYAxis;
