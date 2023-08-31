@@ -28,6 +28,9 @@ namespace Islamic_Stars_Pattern
         private double a;
         private double b;
         private double n;
+        public MainWindow()
+        {
+        }
 
         private void creator()
         {
@@ -44,8 +47,40 @@ namespace Islamic_Stars_Pattern
             Draw.DrawXAndYAxis(canvas);
         }
 
-        public MainWindow()
+        private bool checkInputs()
         {
+            if (NInput.Text.Trim() == "")
+            {
+                MessageBox.Show("Please Fill N", "Error");
+                return false;
+            }
+            else if (GInput.Text.Trim() == "")
+            {
+                MessageBox.Show("Please Fill G", "Error");
+                return false;
+            }
+            else if (KInput.Text.Trim() == "")
+            {
+                MessageBox.Show("Please Fill K", "Error");
+                return false;
+            }
+
+            else if (aInput.Text.Trim() == "")
+            {
+                MessageBox.Show("Please Fill B(x)", "Error");
+                return false;
+            }
+
+            else if (bInput.Text.Trim() == "")
+            {
+                MessageBox.Show("Please Fill B(y)", "Error");
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,7 +95,7 @@ namespace Islamic_Stars_Pattern
                     MessageBox.Show("Invalid Type Selection !");
 
                 }
-                else
+                else if(checkInputs())
                 {
                     this.N = Int32.Parse(NInput.Text);
                     this.K = Int32.Parse(KInput.Text);
@@ -73,7 +108,7 @@ namespace Islamic_Stars_Pattern
             }
             else
             {
-                MessageBox.Show("Please Select Type Of Pattern !");
+                MessageBox.Show("Please Select Type Of Pattern !" , "Error");
             }
         }
 
