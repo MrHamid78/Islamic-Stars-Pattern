@@ -34,6 +34,16 @@
                 <TextBox Width="70" Margin="5,0" Name="bInput"/>
             </StackPanel>
             <Button Margin="0,10" Content="Generate" Click="Button_Click"/>
+            <Label Content="Scale : 1" Name="ScaleLabel"/>
+            <Slider Name="zoomSlider" 
+                Minimum="1" 
+                Maximum="10" 
+                Value="1" 
+                TickFrequency="1"
+                IsSnapToTickEnabled="True" 
+                Margin="0,10"
+                ValueChanged="zoomSlider_ValueChanged"
+            />
         </StackPanel>
 
         <Canvas x:Name="canvas" Grid.Column="1"/>

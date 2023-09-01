@@ -20,7 +20,7 @@ namespace Islamic_Stars_Pattern
         
         string patternType;
 
-        int scale = 10;
+        int scale = 1;
         private int N; // N > 2
         private double G; // G = 1 , 2 , 3
         private int K; // K = 0 , 1 , 2
@@ -150,6 +150,14 @@ namespace Islamic_Stars_Pattern
                     bInput.Text = "";
                 }
             }
+        }
+
+        private void zoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            double zoom = zoomSlider.Value;
+            ScaleLabel.Content = "Scale : " + zoom;
+            this.scale = Int32.Parse(zoom);
+            this.creator();
         }
     }
 }
