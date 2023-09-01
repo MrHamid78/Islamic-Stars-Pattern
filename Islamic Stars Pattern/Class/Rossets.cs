@@ -36,7 +36,7 @@ namespace Islamic_Stars_Pattern.Class
             this.K = K;
             this.a = a;
             this.b = b;
-            this.n = b; //TODO:: CORRECT THIS
+            this.n = b;
         }
         
         public void draw()
@@ -48,9 +48,9 @@ namespace Islamic_Stars_Pattern.Class
 
             for (int i = 1; i <= this.N - 1; i++)
             {
-                newAB = this.rotate(i, this.a * this.scale, this.b * this.scale);
-                newMN = this.rotate(i, m * this.scale, this.n * this.scale);
-                newXY = this.rotate(i, x * this.scale, y * this.scale);
+                newAB = Calculation.rotate(i, this.a * this.scale, this.b * this.scale);
+                newMN = Calculation.rotate(i, m * this.scale, this.n * this.scale);
+                newXY = Calculation.rotate(i, x * this.scale, y * this.scale);
 
                 DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y), Brushes.Blue);
 
@@ -61,19 +61,6 @@ namespace Islamic_Stars_Pattern.Class
                 DrawLine(setX(newMN.X), setY(-newMN.Y), setX(newAB.X), setY(-newAB.Y), Brushes.Blue);
 
             }
-        }
-
-        public Coordinates rotate(int i, double x, double y)
-        {
-            Coordinates coordinates = new Coordinates();
-
-            double phi = 2 * Math.PI / N * i;
-            double newX = (x * Math.Cos(phi)) - y * Math.Sin(phi);
-            double newY = (x * Math.Sin(phi)) + y * Math.Cos(phi);
-            coordinates.X = newX;
-            coordinates.Y = newY;
-
-            return coordinates;
         }
 
         public void drawPrimitivePattern()
