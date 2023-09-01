@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Islamic_Stars_Pattern"
         mc:Ignorable="d"
         SizeChanged="Window_SizeChanged"
-        Title="Islamic Stars Pattern" Height="450" Width="800">
+        Title="Islamic Stars Pattern" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

@@ -28,7 +28,7 @@ namespace Islamic_Stars_Pattern.Class
         private double y;
         private double m;
 
-        public Rossets(Canvas canvas , int N , double G , int K, double a , double b)
+        public Rossets(Canvas canvas , int N , double G , int K, double a , double b , int scale)
         {
             this.canvas = canvas;
             this.N = N;
@@ -37,6 +37,7 @@ namespace Islamic_Stars_Pattern.Class
             this.a = a;
             this.b = b;
             this.n = b;
+            this.scale = scale;
         }
         public void drawPrimitivePattern()
         {

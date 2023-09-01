@@ -23,13 +23,14 @@ namespace Islamic_Stars_Pattern.Class
         private double x;
         private double y;
 
-        public Stars(Canvas canvas, int N,int K, double a, double b)
+        public Stars(Canvas canvas, int N,int K, double a, double b, int scale)
         {
             this.canvas = canvas;
             this.N = N;
             this.K = K;
             this.a = a;
             this.b = b;
+            this.scale = scale;
         }
         public void drawPrimitivePattern()
         {

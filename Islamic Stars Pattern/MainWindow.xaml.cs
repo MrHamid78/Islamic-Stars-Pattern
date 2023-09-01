@@ -34,22 +34,24 @@ namespace Islamic_Stars_Pattern
 
         private void creator()
         {
-            canvas.Children.Clear();
+            if(canvas != null) { 
+                canvas.Children.Clear();
 
-            Draw.DrawXAndYAxis(canvas);
+                Draw.DrawXAndYAxis(canvas);
 
-            if (this.patternType == "Rossete")
-            {
-                pattern = new Rossets(canvas ,N, G, K, a, b);
-            }
-            else if (this.patternType == "Stars")
-            {
-                pattern = new Stars(canvas, N, K, a, b);
-            }
+                if (this.patternType == "Rossete")
+                {
+                    pattern = new Rossets(canvas ,N, G, K, a, b , this.scale);
+                }
+                else if (this.patternType == "Stars")
+                {
+                    pattern = new Stars(canvas, N, K, a, b, this.scale);
+                }
 
-            if(pattern != null)
-            {
-                pattern.draw();
+                if(pattern != null)
+                {
+                    pattern.draw();
+                }
             }
         }
 
@@ -155,8 +157,8 @@ namespace Islamic_Stars_Pattern
         private void zoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             double zoom = zoomSlider.Value;
+            this.scale = (int) zoom;
             ScaleLabel.Content = "Scale : " + zoom;
-            this.scale = Int32.Parse(zoom);
             this.creator();
         }
     }
