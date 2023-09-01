@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Islamic_Stars_Pattern.Class
 {
@@ -69,8 +70,8 @@ namespace Islamic_Stars_Pattern.Class
 
             double m = (this.n / Math.Tan(omega));
 
-            this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale));
-            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale));
+            this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale), Brushes.Blue);
+            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale) , Brushes.Blue);
 
             Coordinates newAB = null;
             Coordinates newMN = null;
