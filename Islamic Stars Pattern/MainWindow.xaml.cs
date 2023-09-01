@@ -35,6 +35,9 @@ namespace Islamic_Stars_Pattern
         private void creator()
         {
             canvas.Children.Clear();
+
+            Draw.DrawXAndYAxis(canvas);
+
             if (this.patternType == "Rossete")
             {
                 pattern = new Rossets(canvas ,N, G, K, a, b);
@@ -43,8 +46,11 @@ namespace Islamic_Stars_Pattern
             {
                 pattern = new Stars(canvas, N, K, a, b);
             }
-            pattern.draw();
-            Draw.DrawXAndYAxis(canvas);
+
+            if(pattern != null)
+            {
+                pattern.draw();
+            }
         }
 
         private bool checkInputs()
@@ -104,6 +110,7 @@ namespace Islamic_Stars_Pattern
                     this.b = Double.Parse(bInput.Text);
                     this.patternType = patternType;
                     creator();
+
                 }
             }
             else
