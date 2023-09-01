@@ -29,8 +29,8 @@ namespace Islamic_Stars_Pattern.Class
             {
                 draw = new Draw(canvas);
             }
-            draw.DrawLine(draw.setX(-(canvas.ActualWidth / 2)), draw.setY(0), draw.setX(canvas.ActualWidth / 2), draw.setY(0), Brushes.Red);
-            draw.DrawLine(draw.setX(0), draw.setY(-(canvas.ActualHeight / 2)), draw.setX(0), draw.setY(canvas.ActualHeight / 2), Brushes.Red);
+            draw.DrawLine(draw.setX(-(canvas.ActualWidth / 2)), draw.setY(0), draw.setX(canvas.ActualWidth / 2), draw.setY(0), Brushes.Black);
+            draw.DrawLine(draw.setX(0), draw.setY(-(canvas.ActualHeight / 2)), draw.setX(0), draw.setY(canvas.ActualHeight / 2), Brushes.Black);
         }
 
         public void DrawLine(double X1, double Y1, double X2, double Y2, SolidColorBrush color)
@@ -47,6 +47,21 @@ namespace Islamic_Stars_Pattern.Class
 
             canvas.Children.Add(line);
         }
+        public void DrawLine(double X1, double Y1, double X2, double Y2,int zIndex, SolidColorBrush color)
+        {
+            Line line = new Line
+            {
+                X1 = X1,    // Start point X coordinate
+                Y1 = Y1,    // Start point Y coordinate
+                X2 = X2,   // End point X coordinate
+                Y2 = Y2,   // End point Y coordinate
+                Stroke = color,
+                StrokeThickness = 2
+            };
+
+            Canvas.SetZIndex(line, zIndex);
+            canvas.Children.Add(line);
+        }
         public void DrawLine(double X1, double Y1, double X2, double Y2)
         {
             Line line = new Line
@@ -58,6 +73,22 @@ namespace Islamic_Stars_Pattern.Class
                 Stroke = Brushes.Black,
                 StrokeThickness = 2
             };
+
+            canvas.Children.Add(line);
+        }
+
+        public void DrawLine(double X1, double Y1, double X2, double Y2, int zIndex)
+        {
+            Line line = new Line
+            {
+                X1 = X1,    // Start point X coordinate
+                Y1 = Y1,    // Start point Y coordinate
+                X2 = X2,   // End point X coordinate
+                Y2 = Y2,   // End point Y coordinate
+                Stroke = Brushes.Black,
+                StrokeThickness = 2
+            };
+            Canvas.SetZIndex(line, zIndex);
 
             canvas.Children.Add(line);
         }
