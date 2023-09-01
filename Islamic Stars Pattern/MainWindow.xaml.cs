@@ -42,7 +42,7 @@ namespace Islamic_Stars_Pattern
             }
             else if (this.patternType == "Stars")
             {
-                pattern = new Stars(canvas, N, G, K, a, b);
+                pattern = new Stars(canvas, N, K, a, b);
                 pattern.drawPrimitivePattern();
             }
             Draw.DrawXAndYAxis(canvas);
