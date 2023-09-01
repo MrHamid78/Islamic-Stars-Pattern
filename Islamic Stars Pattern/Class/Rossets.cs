@@ -12,7 +12,7 @@ namespace Islamic_Stars_Pattern.Class
 {
     public class Rossets : Draw,FactoryInterface
     {
-        int scale = 1;
+        int scale = 3;
 
         private int N; // N > 2
         private double G; // G = 1 , 2 , 3
@@ -71,11 +71,11 @@ namespace Islamic_Stars_Pattern.Class
 
             double m = (this.n / Math.Tan(omega));
 
-            this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale), Brushes.Blue);
-            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale), Brushes.Blue);
+            this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale),100 , Brushes.Cyan);
+            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale), 100, Brushes.Cyan);
 
-            this.DrawLine(setX(m * this.scale), setY(-this.n * this.scale), setX(this.a * this.scale), setY(-this.b * this.scale), Brushes.Green);
-            this.DrawLine(setX(this.a * this.scale), setY(-this.b * this.scale), setX(x * this.scale), setY(-y * this.scale), Brushes.Green);
+            this.DrawLine(setX(m * this.scale), setY(-this.n * this.scale), setX(this.a * this.scale), setY(-this.b * this.scale), 100, Brushes.Cyan);
+            this.DrawLine(setX(this.a * this.scale), setY(-this.b * this.scale), setX(x * this.scale), setY(-y * this.scale), 100, Brushes.Cyan);
 
             Coordinates newAB = null;
             Coordinates newMN = null;
@@ -88,18 +88,17 @@ namespace Islamic_Stars_Pattern.Class
 
             for (int i = 1; i <= this.N - 1; i++)
             {
-                Thread.Sleep(500);
                 newAB = this.rotate(i, this.a * this.scale,this.b * this.scale);
                 newMN = this.rotate(i, m * this.scale, this.n * this.scale);
                 newXY = this.rotate(i, x * this.scale, y * this.scale);
 
-                DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y));
+                DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y) , Brushes.Blue);
 
-                DrawLine(setX(newMN.X), setY(newMN.Y), setX(newAB.X), setY(newAB.Y));
+                DrawLine(setX(newMN.X), setY(newMN.Y), setX(newAB.X), setY(newAB.Y), Brushes.Blue);
 
-                DrawLine(setX(newAB.X), setY(-newAB.Y), setX(newXY.X), setY(-newXY.Y));
+                DrawLine(setX(newAB.X), setY(-newAB.Y), setX(newXY.X), setY(-newXY.Y), Brushes.Blue);
 
-                DrawLine(setX(newMN.X), setY(-newMN.Y), setX(newAB.X), setY(-newAB.Y));
+                DrawLine(setX(newMN.X), setY(-newMN.Y), setX(newAB.X), setY(-newAB.Y), Brushes.Blue);
 
             }
 
