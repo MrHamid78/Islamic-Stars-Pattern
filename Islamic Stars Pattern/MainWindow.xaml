@@ -22,7 +22,7 @@
             <Label Content="N :"/>
             <TextBox Margin="0,10" Name="NInput"/>
             <Label Content="G :"/>
-            <TextBox Margin="0,10" Name="GInput"/>
+            <TextBox Margin="0,10" Name="GInput" PreviewTextInput="DoubleTextBox_PreviewTextInput"/>
             <Label Content="K :"/>
             <TextBox Margin="0,10" Name="KInput"/>
             <StackPanel Orientation="Horizontal" Margin="0,10">
@@ -30,8 +30,8 @@
                 <Label Content="B (y) :" Width="70" Margin="5,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10">
-                <TextBox Width="70" Margin="5,0" Name="aInput"/>
-                <TextBox Width="70" Margin="5,0" Name="bInput"/>
+                <TextBox Width="70" Margin="5,0" Name="aInput"  PreviewTextInput="DoubleTextBox_PreviewTextInput"/>
+                <TextBox Width="70" Margin="5,0" Name="bInput"  PreviewTextInput="DoubleTextBox_PreviewTextInput"/>
             </StackPanel>
             <Button Margin="0,10" Content="Generate" Click="Button_Click"/>
             <Label Content="Scale : 1" Name="ScaleLabel"/>
