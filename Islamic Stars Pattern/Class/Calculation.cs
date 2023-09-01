@@ -8,7 +8,7 @@ namespace Islamic_Stars_Pattern.Class
 {
     public class Calculation
     {
-        public static Coordinates rotate(int i, double x, double y)
+        public static Coordinates rotate(int N ,int i, double x, double y)
         {
             Coordinates coordinates = new Coordinates();
 

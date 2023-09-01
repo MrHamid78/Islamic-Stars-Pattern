@@ -75,9 +75,9 @@ namespace Islamic_Stars_Pattern.Class
 
             for (int i = 1; i <= this.N - 1; i++)
             {
-                newAB = Calculation.rotate(i, this.a * this.scale, this.b * this.scale);
-                newMN = Calculation.rotate(i, m * this.scale, this.n * this.scale);
-                newXY = Calculation.rotate(i, x * this.scale, y * this.scale);
+                newAB = Calculation.rotate(N , i, this.a * this.scale, this.b * this.scale);
+                newMN = Calculation.rotate(N , i, m * this.scale, this.n * this.scale);
+                newXY = Calculation.rotate(N, i, x * this.scale, y * this.scale);
 
                 DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y), Brushes.Blue);
 
