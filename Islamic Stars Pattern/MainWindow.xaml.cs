@@ -38,13 +38,12 @@ namespace Islamic_Stars_Pattern
             if (this.patternType == "Rossete")
             {
                 pattern = new Rossets(canvas ,N, G, K, a, b);
-                pattern.drawPrimitivePattern();
             }
             else if (this.patternType == "Stars")
             {
                 pattern = new Stars(canvas, N, K, a, b);
-                pattern.drawPrimitivePattern();
             }
+            pattern.draw();
             Draw.DrawXAndYAxis(canvas);
         }
 

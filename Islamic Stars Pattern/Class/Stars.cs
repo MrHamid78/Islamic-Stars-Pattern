@@ -49,7 +49,7 @@ namespace Islamic_Stars_Pattern.Class
 
         }
 
-        public void draw()
+        public void drawRestOfDiagram()
         {
 
             Coordinates newAB = null;
@@ -65,6 +65,12 @@ namespace Islamic_Stars_Pattern.Class
 
             }
 
+        }
+
+        public void draw()
+        {
+            drawPrimitivePattern();
+            drawRestOfDiagram();
         }
     }
 }

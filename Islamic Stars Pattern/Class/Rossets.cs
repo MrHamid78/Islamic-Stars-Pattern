@@ -38,8 +38,35 @@ namespace Islamic_Stars_Pattern.Class
             this.b = b;
             this.n = b;
         }
-        
-        public void draw()
+        public void drawPrimitivePattern()
+        {
+            alpha2 = (90 - (180 / this.N));
+            alpha2 = alpha2 * Math.PI / 180;
+
+            alpha1 = K * (180 / this.N);
+            alpha1 = alpha1 * Math.PI / 180;
+
+            x =
+                    ((this.a * Math.Tan(alpha2)) - this.b)
+                    /
+                    (Math.Tan(alpha2) - Math.Tan(alpha1));
+
+            y = (Math.Tan(alpha2) * (x - this.a)) + this.b;
+
+            double omega = (180 / this.N) * this.G; // Omega != 90
+            omega = omega * Math.PI / 180;
+
+            m = (this.n / Math.Tan(omega));
+
+            this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale), 100, Brushes.Cyan);
+            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale), 100, Brushes.Cyan);
+
+            this.DrawLine(setX(m * this.scale), setY(-this.n * this.scale), setX(this.a * this.scale), setY(-this.b * this.scale), 100, Brushes.Cyan);
+            this.DrawLine(setX(this.a * this.scale), setY(-this.b * this.scale), setX(x * this.scale), setY(-y * this.scale), 100, Brushes.Cyan);
+
+        }
+
+        public void drawRestOfDiagram()
         {
             Coordinates newAB = null;
             Coordinates newMN = null;
@@ -63,32 +90,10 @@ namespace Islamic_Stars_Pattern.Class
             }
         }
 
-        public void drawPrimitivePattern()
+        public void draw()
         {
-            alpha2 = (90 - (180 / this.N));
-            alpha2 = alpha2 * Math.PI / 180;
-
-            alpha1 = K * (180 / this.N);
-            alpha1 = alpha1 * Math.PI / 180;
-
-            x =
-                    ((this.a * Math.Tan(alpha2)) - this.b)
-                    /
-                    (Math.Tan(alpha2) - Math.Tan(alpha1));
-
-            y = (Math.Tan(alpha2) * (x - this.a)) + this.b;
-
-            double omega = (180 / this.N) * this.G; // Omega != 90
-            omega = omega * Math.PI / 180;
-
-            m = (this.n / Math.Tan(omega));
-
-            this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale),100 , Brushes.Cyan);
-            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale), 100, Brushes.Cyan);
-
-            this.DrawLine(setX(m * this.scale), setY(-this.n * this.scale), setX(this.a * this.scale), setY(-this.b * this.scale), 100, Brushes.Cyan);
-            this.DrawLine(setX(this.a * this.scale), setY(-this.b * this.scale), setX(x * this.scale), setY(-y * this.scale), 100, Brushes.Cyan);
-
+            drawPrimitivePattern();
+            drawRestOfDiagram();
         }
     }
 }
