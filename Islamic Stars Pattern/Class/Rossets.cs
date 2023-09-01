@@ -22,6 +22,12 @@ namespace Islamic_Stars_Pattern.Class
         private double b;
         private double n;
 
+        private double alpha2;
+        private double alpha1;
+        private double x;
+        private double y;
+        private double m;
+
         public Rossets(Canvas canvas , int N , double G , int K, double a , double b)
         {
             this.canvas = canvas;
@@ -35,7 +41,26 @@ namespace Islamic_Stars_Pattern.Class
         
         public void draw()
         {
+            Coordinates newAB = null;
+            Coordinates newMN = null;
+            Coordinates newXY = null;
 
+
+            for (int i = 1; i <= this.N - 1; i++)
+            {
+                newAB = this.rotate(i, this.a * this.scale, this.b * this.scale);
+                newMN = this.rotate(i, m * this.scale, this.n * this.scale);
+                newXY = this.rotate(i, x * this.scale, y * this.scale);
+
+                DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y), Brushes.Blue);
+
+                DrawLine(setX(newMN.X), setY(newMN.Y), setX(newAB.X), setY(newAB.Y), Brushes.Blue);
+
+                DrawLine(setX(newAB.X), setY(-newAB.Y), setX(newXY.X), setY(-newXY.Y), Brushes.Blue);
+
+                DrawLine(setX(newMN.X), setY(-newMN.Y), setX(newAB.X), setY(-newAB.Y), Brushes.Blue);
+
+            }
         }
 
         public Coordinates rotate(int i, double x, double y)
@@ -53,54 +78,29 @@ namespace Islamic_Stars_Pattern.Class
 
         public void drawPrimitivePattern()
         {
-            double alpha2 = (90 - (180 / this.N));
+            alpha2 = (90 - (180 / this.N));
             alpha2 = alpha2 * Math.PI / 180;
 
-            double alpha1 = K * (180 / this.N);
+            alpha1 = K * (180 / this.N);
             alpha1 = alpha1 * Math.PI / 180;
 
-            double x =
+            x =
                     ((this.a * Math.Tan(alpha2)) - this.b)
                     /
                     (Math.Tan(alpha2) - Math.Tan(alpha1));
 
-            double y = (Math.Tan(alpha2) * (x - this.a)) + this.b;
+            y = (Math.Tan(alpha2) * (x - this.a)) + this.b;
 
             double omega = (180 / this.N) * this.G; // Omega != 90
             omega = omega * Math.PI / 180;
 
-            double m = (this.n / Math.Tan(omega));
+            m = (this.n / Math.Tan(omega));
 
             this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale),100 , Brushes.Cyan);
             this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale), 100, Brushes.Cyan);
 
             this.DrawLine(setX(m * this.scale), setY(-this.n * this.scale), setX(this.a * this.scale), setY(-this.b * this.scale), 100, Brushes.Cyan);
             this.DrawLine(setX(this.a * this.scale), setY(-this.b * this.scale), setX(x * this.scale), setY(-y * this.scale), 100, Brushes.Cyan);
-
-            Coordinates newAB = null;
-            Coordinates newMN = null;
-            Coordinates newXY = null;
-
-            /*newXY = new Coordinates();
-            newXY.X = setX(x * this.scale);
-            newXY.Y = setY(y * this.scale);*/
-
-
-            for (int i = 1; i <= this.N - 1; i++)
-            {
-                newAB = this.rotate(i, this.a * this.scale,this.b * this.scale);
-                newMN = this.rotate(i, m * this.scale, this.n * this.scale);
-                newXY = this.rotate(i, x * this.scale, y * this.scale);
-
-                DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y) , Brushes.Blue);
-
-                DrawLine(setX(newMN.X), setY(newMN.Y), setX(newAB.X), setY(newAB.Y), Brushes.Blue);
-
-                DrawLine(setX(newAB.X), setY(-newAB.Y), setX(newXY.X), setY(-newXY.Y), Brushes.Blue);
-
-                DrawLine(setX(newMN.X), setY(-newMN.Y), setX(newAB.X), setY(-newAB.Y), Brushes.Blue);
-
-            }
 
         }
     }
