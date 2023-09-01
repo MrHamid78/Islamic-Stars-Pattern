@@ -17,7 +17,7 @@ namespace Islamic_Stars_Pattern
     {
 
         FactoryInterface pattern;
-
+        
         string patternType;
 
         int scale = 10;
@@ -42,7 +42,8 @@ namespace Islamic_Stars_Pattern
             }
             else if (this.patternType == "Stars")
             {
-
+                pattern = new Stars(canvas, N, G, K, a, b);
+                pattern.drawPrimitivePattern();
             }
             Draw.DrawXAndYAxis(canvas);
         }
@@ -115,6 +116,34 @@ namespace Islamic_Stars_Pattern
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             this.creator();
+        }
+
+        private void type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem selctedType = (ComboBoxItem)type.SelectedItem;
+
+            if (selctedType != null)
+            {
+                string patternType = selctedType.Content.ToString();
+                if (patternType == "Stars")
+                {
+                    GInput.IsReadOnly = true;
+                    GInput.Background = Brushes.LightGray;
+                    GInput.Text = "0";
+                    bInput.IsReadOnly = true;
+                    bInput.Background = Brushes.LightGray;
+                    bInput.Text = "0";
+                }
+                else
+                {
+                    GInput.IsReadOnly = false;
+                    GInput.Background = SystemColors.ControlBrush;
+                    GInput.Text = "";
+                    bInput.IsReadOnly = false;
+                    bInput.Background = SystemColors.ControlBrush;
+                    bInput.Text = "";
+                }
+            }
         }
     }
 }

@@ -15,7 +15,7 @@
 
         <StackPanel Grid.Column="0" Margin="10">
             <Label Content="Type :"/>
-            <ComboBox Name="type">
+            <ComboBox Name="type" SelectionChanged="type_SelectionChanged">
                 <ComboBoxItem Content="Rossete"/>
                 <ComboBoxItem Content="Stars"/>
             </ComboBox>
