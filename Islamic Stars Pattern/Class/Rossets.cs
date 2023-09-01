@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -42,8 +43,8 @@ namespace Islamic_Stars_Pattern.Class
             Coordinates coordinates = new Coordinates();
 
             double phi = 2 * Math.PI / N * i;
-            double newX = (x * Math.Cos(phi)) + y * Math.Sin(phi);
-            double newY = (-x * Math.Sin(phi)) + y * Math.Cos(phi);
+            double newX = (x * Math.Cos(phi)) - y * Math.Sin(phi);
+            double newY = (x * Math.Sin(phi)) + y * Math.Cos(phi);
             coordinates.X = newX;
             coordinates.Y = newY;
 
@@ -71,30 +72,36 @@ namespace Islamic_Stars_Pattern.Class
             double m = (this.n / Math.Tan(omega));
 
             this.DrawLine(setX(m * this.scale), setY(this.n * this.scale), setX(this.a * this.scale), setY(this.b * this.scale), Brushes.Blue);
-            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale) , Brushes.Blue);
+            this.DrawLine(setX(this.a * this.scale), setY(this.b * this.scale), setX(x * this.scale), setY(y * this.scale), Brushes.Blue);
+
+            this.DrawLine(setX(m * this.scale), setY(-this.n * this.scale), setX(this.a * this.scale), setY(-this.b * this.scale), Brushes.Green);
+            this.DrawLine(setX(this.a * this.scale), setY(-this.b * this.scale), setX(x * this.scale), setY(-y * this.scale), Brushes.Green);
 
             Coordinates newAB = null;
             Coordinates newMN = null;
             Coordinates newXY = null;
 
-            newXY = new Coordinates();
+            /*newXY = new Coordinates();
             newXY.X = setX(x * this.scale);
-            newXY.Y = setY(y * this.scale);
+            newXY.Y = setY(y * this.scale);*/
 
 
-            /*for (int i = 1; i < this.N - 1; i++)
+            for (int i = 1; i <= this.N - 1; i++)
             {
-                newAB = this.rotate(i, setX(this.a * this.scale), setY(this.b * this.scale));
-                newMN = this.rotate(i, setX(m * this.scale), setY(this.n * this.scale));
+                Thread.Sleep(500);
+                newAB = this.rotate(i, this.a * this.scale,this.b * this.scale);
+                newMN = this.rotate(i, m * this.scale, this.n * this.scale);
+                newXY = this.rotate(i, x * this.scale, y * this.scale);
 
-                DrawLine(newAB.X, newAB.Y, newXY.X, newXY.Y);
+                DrawLine(setX(newAB.X), setY(newAB.Y), setX(newXY.X), setY(newXY.Y));
 
-                newXY = this.rotate(i, setX(x * this.scale), setY(y * this.scale));
+                DrawLine(setX(newMN.X), setY(newMN.Y), setX(newAB.X), setY(newAB.Y));
 
-                DrawLine(newMN.X, newMN.Y, newAB.X, newAB.Y);
+                DrawLine(setX(newAB.X), setY(-newAB.Y), setX(newXY.X), setY(-newXY.Y));
 
-                DrawLine(newAB.X, newAB.Y, newXY.X, newXY.Y);
-            }*/
+                DrawLine(setX(newMN.X), setY(-newMN.Y), setX(newAB.X), setY(-newAB.Y));
+
+            }
 
         }
     }
