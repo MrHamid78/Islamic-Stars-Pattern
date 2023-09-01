@@ -20,11 +20,11 @@
                 <ComboBoxItem Content="Stars"/>
             </ComboBox>
             <Label Content="N :"/>
-            <TextBox Margin="0,10" Name="NInput"/>
+            <TextBox Margin="0,10" Name="NInput" PreviewTextInput="IntTextBox_PreviewTextInput"/>
             <Label Content="G :"/>
             <TextBox Margin="0,10" Name="GInput" PreviewTextInput="DoubleTextBox_PreviewTextInput"/>
             <Label Content="K :"/>
-            <TextBox Margin="0,10" Name="KInput"/>
+            <TextBox Margin="0,10" Name="KInput" PreviewTextInput="IntTextBox_PreviewTextInput"/>
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <Label Content="B (x) :" Width="70" Margin="5,0"/>
                 <Label Content="B (y) :" Width="70" Margin="5,0"/>

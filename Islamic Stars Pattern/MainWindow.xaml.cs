@@ -209,6 +209,33 @@ namespace Islamic_Stars_Pattern
             }
         }
 
-        
+        private void IntTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            string newText = textBox.Text.Insert(textBox.CaretIndex, e.Text);
+
+            if (!IsInteger(newText) && !e.Text.All(char.IsControl))
+            {
+                e.Handled = true; // Prevent the invalid input from being entered
+            }
+        }
+
+        private bool IsInteger(string text)
+        {
+            if (text == "-")
+            {
+                return true; // Allow a single negative sign
+            }
+
+            if (text.StartsWith("-"))
+            {
+                text = text.Substring(1); // Remove the negative sign
+            }
+
+            return int.TryParse(text, out _); // Try to parse the remaining text as an integer
+        }
+
+
+
     }
 }
