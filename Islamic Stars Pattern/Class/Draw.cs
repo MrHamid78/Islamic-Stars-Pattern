@@ -15,6 +15,9 @@ namespace Islamic_Stars_Pattern.Class
 
         protected Canvas canvas;
 
+        private int zIndex = 0;
+        private SolidColorBrush color = null; 
+
         public Draw(Canvas canvas)
         {
             this.canvas = canvas;
@@ -33,8 +36,12 @@ namespace Islamic_Stars_Pattern.Class
             draw.DrawLine(draw.setX(0), draw.setY(-(canvas.ActualHeight / 2)), draw.setX(0), draw.setY(canvas.ActualHeight / 2), Brushes.Black);
         }
 
-        public void DrawLine(double X1, double Y1, double X2, double Y2, SolidColorBrush color)
+        public void DrawLine(double X1, double Y1, double X2, double Y2)
         {
+            if (color == null)
+            {
+                color = Brushes.Black;
+            }
             Line line = new Line
             {
                 X1 = X1,    // Start point X coordinate
@@ -45,52 +52,36 @@ namespace Islamic_Stars_Pattern.Class
                 StrokeThickness = 2
             };
 
+            if (zIndex != 0)
+            {
+                Canvas.SetZIndex(line, zIndex);
+            }
+
             canvas.Children.Add(line);
+
+            this.zIndex = 0;
+            color = null;
+
+        }
+
+        public void DrawLine(double X1, double Y1, double X2, double Y2, SolidColorBrush color)
+        {
+            this.color = color;
+            DrawLine(X1, Y1, X2, Y2);
         }
         public void DrawLine(double X1, double Y1, double X2, double Y2,int zIndex, SolidColorBrush color)
         {
-            Line line = new Line
-            {
-                X1 = X1,    // Start point X coordinate
-                Y1 = Y1,    // Start point Y coordinate
-                X2 = X2,   // End point X coordinate
-                Y2 = Y2,   // End point Y coordinate
-                Stroke = color,
-                StrokeThickness = 2
-            };
+            this.color = color;
+            this.zIndex += zIndex;
+            DrawLine(X1, Y1, X2, Y2);
 
-            Canvas.SetZIndex(line, zIndex);
-            canvas.Children.Add(line);
         }
-        public void DrawLine(double X1, double Y1, double X2, double Y2)
-        {
-            Line line = new Line
-            {
-                X1 = X1,    // Start point X coordinate
-                Y1 = Y1,    // Start point Y coordinate
-                X2 = X2,   // End point X coordinate
-                Y2 = Y2,   // End point Y coordinate
-                Stroke = Brushes.Black,
-                StrokeThickness = 2
-            };
-
-            canvas.Children.Add(line);
-        }
+        
 
         public void DrawLine(double X1, double Y1, double X2, double Y2, int zIndex)
         {
-            Line line = new Line
-            {
-                X1 = X1,    // Start point X coordinate
-                Y1 = Y1,    // Start point Y coordinate
-                X2 = X2,   // End point X coordinate
-                Y2 = Y2,   // End point Y coordinate
-                Stroke = Brushes.Black,
-                StrokeThickness = 2
-            };
-            Canvas.SetZIndex(line, zIndex);
-
-            canvas.Children.Add(line);
+            this.zIndex = zIndex;
+            DrawLine(X1, Y1, X2, Y2);
         }
 
         public double setX(double x)
