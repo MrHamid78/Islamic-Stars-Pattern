@@ -50,7 +50,7 @@ namespace Islamic_Stars_Pattern.Class
 
         }
 
-        public void drawRestOfDiagram()
+        private void drawRestOfDiagram()
         {
 
             Coordinates newAB = null;
